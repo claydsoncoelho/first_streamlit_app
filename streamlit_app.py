@@ -31,4 +31,4 @@ if fruityvice_normalized.columns[0] != 'error':
   # printing the dataframe
   streamlit.dataframe(fruityvice_normalized)
 else:
-  streamlit.write(fruityvice_normalized.loc[0]['error'])
+  streamlit.write(fruit_choice + ': ', fruityvice_normalized.loc[0]['error'])
