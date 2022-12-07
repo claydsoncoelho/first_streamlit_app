@@ -27,7 +27,6 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_c
 
 # Adding json data to a dataframe 
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-streamlit.write(fruityvice_response.json())
 if not(fruityvice_response.json()):
   fruityvice_normalized = fruityvice_normalized.set_index('name') # Changing the index from int to Fruit column
 # printing the dataframe
