@@ -18,6 +18,8 @@ fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.write(fruits_selected)
 streamlit.write(type(fruits_selected))
+streamlit.write(fruits_selected[0])
+streamlit.write(type(fruits_selected[0]))
 
 # Distplay the tables on the page
 streamlit.dataframe(fruits_to_show)
