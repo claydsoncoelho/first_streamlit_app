@@ -16,7 +16,8 @@ def get_fruit_load_list(cnx):
   
 def insert_row_snowflake(cnx, new_fruit):
   with cnx.cursor() as my_cur:
-    sql_comd = "insert into fruit_load_list values('" + new_fruit + "')"
+    #sql_comd = "insert into fruit_load_list values('" + new_fruit + "')"
+    sql_comd = "delete from fruit_load_list where fruit_name = '" + new_fruit + "'"
     my_cur.execute(sql_comd)
     return "Thanks for adding " + new_fruit
 
