@@ -13,6 +13,12 @@ def get_fruit_load_list(cnx):
   with cnx.cursor() as my_cur:
     my_cur.execute("select * from fruit_load_list")
     return my_cur.fetchall()
+  
+def insert_row_snowflake(cnx, new_fruit):
+  with cnx.cursor() as my_cur:
+    sql_comd = "insert into fruit_load_list values('" + new_fruit + "')"
+    my_cur.execute(sql_comd)
+    return "Thanks for adding " + new_fruit
 
 streamlit.title('My Parents New Healthy Diner')
 streamlit.header('Breakfast Menu')
@@ -49,21 +55,16 @@ try:
 except URLError as e:
   stremlit.error()
 
-streamlit.header("The fruit load list contains:")
-streamlit.write('0')
-if streamlit.button('Get Fruit Load List'):
-  streamlit.write('1')
-  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-  streamlit.write('2')
-  my_data = get_fruit_load_list(my_cnx)
-  streamlit.write('3')
-  streamlit.dataframe(my_data)
-
-streamlit.stop()
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   
-add_my_fruit = streamlit.text_input('What fruit would you like to add?','jackfruit')
-streamlit.write('Thanks for adding', add_my_fruit)
+streamlit.header("The fruit load list contains:")
+if streamlit.button('Get Fruit Load List'):
+  my_data = get_fruit_load_list(my_cnx)
+  streamlit.dataframe(my_data)
+ 
+add_my_fruit = streamlit.text_input('What fruit would you like to add?')
+if streamlit.button('Add a Fruit to the List'):
+  back_from_function = insert_row_snowflake(my_cnx, add_my_fruit)
+  streamlit.dataframe(back_from_function)
 
-sql_comm = "insert into fruit_load_list values('" + add_my_fruit + "')"
-streamlit.write(sql_comm)
-my_cur.execute(sql_comm)
+#streamlit.stop()
