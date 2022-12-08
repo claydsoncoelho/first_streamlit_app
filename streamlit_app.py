@@ -15,10 +15,15 @@ def get_fruit_load_list(cnx):
     return my_cur.fetchall()
   
 def insert_row_snowflake(cnx, new_fruit):
+  streamlit.write('1')
   with cnx.cursor() as my_cur:
-    #sql_comd = "insert into fruit_load_list values('" + new_fruit + "')"
-    sql_comd = "delete from fruit_load_list where fruit_name = '" + new_fruit + "'"
-    my_cur.execute(sql_comd)
+    streamlit.write('2')
+    #sql_cmd = "insert into fruit_load_list values('" + new_fruit + "')"
+    streamlit.write('3')
+    sql_cmd = "delete from fruit_load_list where fruit_name = '" + new_fruit + "'"
+    streamlit.write('4')
+    my_cur.execute(sql_cmd)
+    streamlit.write('5')
     return "Thanks for adding " + new_fruit
 
 streamlit.title('My Parents New Healthy Diner')
