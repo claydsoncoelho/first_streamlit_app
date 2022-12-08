@@ -35,7 +35,7 @@ try:
       # printing the dataframe
       streamlit.dataframe(fruityvice_normalized)
     else:
-      streamlit.write(fruit_choice + ': ', fruityvice_normalized.loc[0]['error'])
+      streamlit.error(fruit_choice + ': ', fruityvice_normalized.loc[0]['error'])
 except URLError as e:
   stremlit.error()
   
