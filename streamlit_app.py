@@ -2,6 +2,7 @@ import streamlit
 import pandas
 import requests
 import snowflake.connector
+from urllib.error import URLError
 
 streamlit.title('My Parents New Healthy Diner')
 streamlit.header('Breakfast Menu')
@@ -33,6 +34,8 @@ if fruityvice_normalized.columns[0] != 'error':
   streamlit.dataframe(fruityvice_normalized)
 else:
   streamlit.write(fruit_choice + ': ', fruityvice_normalized.loc[0]['error'])
+  
+streamlit.stop()
   
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
