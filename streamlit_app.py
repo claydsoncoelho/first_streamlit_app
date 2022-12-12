@@ -41,7 +41,7 @@ streamlit.dataframe(fruits_to_show)
 
 streamlit.write('abc', 123)
 
-streamlit.write('Total Calories:', str(fruits_to_show['Calories'].sum())
+streamlit.write('Total Calories:', fruits_to_show['Calories'].sum())
 
 #streamlit.write('Total Calories: ' + str(fruits_to_show['Calories'].sum()) + 'Total Fat: ' + (fruits_to_show['Calories'].sum()), 
 #                'Total Carbs:', ruits_to_show['Calories'].sum(), 'Total Protein: ', ruits_to_show['Calories'].sum())
