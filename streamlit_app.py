@@ -40,7 +40,7 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 
 streamlit.write('Total Calories:', fruits_to_show['Calories'].sum(), 'Total Fat(g):', fruits_to_show['Total_Fat_G'].sum(),
-               'Total Carbs(g):', fruits_to_show['Total_Carbs_G)'].sum(), 'Total Protein(g):', fruits_to_show['Total_Carbs_G)'].sum())
+               'Total Carbs(g):', fruits_to_show['Total_Carbs_G)'].sum(), 'Total Protein(g):', fruits_to_show['Protein_G)'].sum())
 
 streamlit.header("Fruityvice Fruit Advice!")
 try:
