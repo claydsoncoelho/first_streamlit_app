@@ -39,7 +39,8 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 # Distplay the tables on the page
 streamlit.dataframe(fruits_to_show)
 
-streamlit.write(fruits_to_show['Calories'].sum())
+streamlit.write('Total Calories: ', fruits_to_show['Calories'].sum(), 'Total Fat: ', ruits_to_show['Calories'].sum(), 
+                'Total Carbs:', ruits_to_show['Calories'].sum(), 'Total Protein: ', ruits_to_show['Calories'].sum())
 
 streamlit.header("Fruityvice Fruit Advice!")
 try:
