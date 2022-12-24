@@ -21,7 +21,7 @@ def insert_row_snowflake(cnx, new_fruit):
     my_cur.execute(sql_cmd)
     return "Thanks for adding " + new_fruit
 
-streamlit.title('My Parents New Healthy Diner')
+streamlit.title('New Healthy Diner')
 streamlit.header('Breakfast Menu')
 streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
 streamlit.text('🥗 Kale, Spinach & Rocket Smoothie')
