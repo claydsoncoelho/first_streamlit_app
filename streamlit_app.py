@@ -11,7 +11,8 @@ def get_fruityvice_data(this_fruit_choice):
 
 def get_fruit_load_list(cnx):
   with cnx.cursor() as my_cur:
-    my_cur.execute("select * from fruit_load_list")
+    #my_cur.execute("select * from fruit_load_list")
+    my_cur.execute("SELECT * FROM DB_TIMESHEET.PUBLIC.RESOURCES")
     return my_cur.fetchall()
   
 def insert_row_snowflake(cnx, new_fruit):
